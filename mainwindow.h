@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#define USERNAME "thiago"
+#define PASSWORD "123thiago"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -18,7 +21,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_loginPushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

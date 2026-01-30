@@ -15,13 +15,22 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_loginPushButton_clicked()
 {
-    QMessageBox::StandardButton retarn =
-    QMessageBox::question(this,"Test",ui->lineEdit->text(),QMessageBox::Yes|QMessageBox::No);
-    if(retarn==QMessageBox::Yes)
-        QApplication::quit();
-    else QMessageBox::about(this,"Answer","wrong answer");
-        //qDebug() << "wrong answer";
-}
+    QString username = ui->usernameLineEdit->text();
+    QString password = ui->passwordLineEdit->text();
 
+    QString messageBoxTitle;
+    QString messageBoxMessage;
+
+    if (username == USERNAME && password == PASSWORD) {
+        messageBoxTitle = "Autenticado com sucesso";
+        messageBoxMessage = QString("O usuário ")+ui->usernameLineEdit->text() + " foi autenticado com sucesso";
+    }
+    else {
+        messageBoxTitle = "Erro ao logar";
+        messageBoxMessage = "Usuário ou senha incorretos";
+    }
+
+    QMessageBox::information(this, messageBoxTitle, messageBoxMessage, QMessageBox::Ok);
+}
