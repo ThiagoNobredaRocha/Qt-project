@@ -34,3 +34,20 @@ void MainWindow::on_loginPushButton_clicked()
 
     QMessageBox::information(this, messageBoxTitle, messageBoxMessage, QMessageBox::Ok);
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->pushButton->setCheckable(true);
+
+    if (ui->pushButton->isChecked()) {
+        ui->pushButton->setText("ShowPass");
+        ui->passwordLineEdit->setEchoMode(QLineEdit::Password);
+        qDebug() << "true";
+    }else{
+        ui->pushButton->setText("HidePass");
+         ui->passwordLineEdit->setEchoMode(QLineEdit::Normal);
+        qDebug() << "false";
+    }
+
+}
+
